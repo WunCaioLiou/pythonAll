@@ -5,7 +5,6 @@ import pandas as pd
 from datetime import datetime
 import matplotlib.pyplot as plt
 import seaborn as sns
-import matplotlib as mplt
 
 st = "10001"  #起始月
 yr = datetime.today().year - 1911 #西元轉民國
@@ -35,10 +34,10 @@ listcy = df["縣市"][1:23] #取得全台縣市列表
 dfcy = df.groupby("縣市")
 
 #開始畫圖
-sns.set_theme(style = "whitegrid" , palette="deep" , font = "Microsoft JhengHei",
-              rc = {"figure.dpi" : 100 , "figure.figsize" : (30 , 24)})
+sns.set_theme(style="darkgrid" , palette="deep" , font = "Microsoft JhengHei",
+              rc = {"figure.dpi" : 200 })
 sns.lineplot( data = dfar , x = "year" , y = "出生人數(人)"   )
-mplt.rcParams['font.size'] = 96
+plt.rcParams['font.size'] = 96
 plt.tight_layout()
 
 plt.savefig("台灣出生人口趨勢變化.png")
